@@ -37,6 +37,7 @@
 
 <script>
 import Generate from './components/Generate.vue'
+const initTime = String((new Date()) / 1)
 
 export default {
   name: 'App',
@@ -66,7 +67,7 @@ export default {
       const height = String(window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight)
       const lang = navigator.language || navigator.userLanguage
 
-      this.entropyInput = navigator.userAgent + ' ' + width + 'x' + height + ' ' + lang + ' ' + String((new Date()) / 1) + ' ' + this.text + ' ' + this.coords
+      this.entropyInput = navigator.userAgent + ' ' + width + 'x' + height + ' ' + lang + ' ' + initTime + ' ' + this.text + ' ' + this.coords
     }
   },
   computed: {
@@ -85,7 +86,7 @@ export default {
   },
   mounted () {
     const start = e => {
-      if (e.target.tagName.toLowerCase() !== 'input') {
+      if (['input', 'button', 'a'].indexOf(e.target.tagName.toLowerCase()) < 0) {
         this.isDrawing = true
         if (!this.isTyping) {
           document.querySelector('body').style.touchAction = 'none'

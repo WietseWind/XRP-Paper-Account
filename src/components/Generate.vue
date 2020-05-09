@@ -3,11 +3,17 @@
     <!-- <h1>Hi</h1> -->
     <!-- <pre>{{ entropyString }}</pre> -->
     <!-- <pre>{{ hash }}</pre> -->
+    <div v-if="account !== ''" class="alert alert-warning text-center h6 mb-4">
+      <b>TEST YOUR ACCOUNT FIRST! DEPOSIT AND TRY SENDING SOMETHING BEFORE USING YOUR ACCOUNT FOR LARGER AMOUNTS.</b>
+    </div>
     <div class="text-center">
       <b>Account address (public)</b>
       <code class="text-primary d-block mb-3"><b>{{ account }}</b></code>
       <b>Account secret (for your eyes only)</b>
       <code class="text-danger d-block mb-3"><b>{{ secret }}</b></code>
+    </div>
+    <div class="mt-4 text-center">
+      <button @click="print()" class="font-weight-bold btn btn-lg btn-dark">Print this</button>
     </div>
   </div>
 </template>
@@ -23,6 +29,11 @@ export default {
   props: {
     entropyString: String
   },
+  methods: {
+    print () {
+      window.print()
+    }
+  },
   watch: {
     entropyString () {
       clearTimeout(entropyCalculatorTimer)
@@ -35,8 +46,8 @@ export default {
   },
   data () {
     return {
-      secret: '',
-      account: ''
+      secret: 'XXXXXXXXXXXXXXXXXXXXXXXXXXX',
+      account: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
     }
   },
   computed: {

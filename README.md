@@ -3,7 +3,7 @@
 Generate a r... XRP ledger account and matching Family Seed (secret) based on your own random input data (text & mouse / touch movement).
 Inspired by [bitaddress.org](https://bitaddress.org)
 
-By [Wietse Wind](https://wietse.com)
+By [Wietse Wind](https://wietse.com) - Donations: rwietsevLFg8XSmG3bEZzFein1g8RBqWDZ
 
 ## Please note that the best way to run this, is by getting the source, installing the dependencies (see "Compile" below) and run this offline on your own device.
 

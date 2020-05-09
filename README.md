@@ -1,24 +1,18 @@
-# xrpaddress
+# Generate XRP Ledger Paper Account
 
-## Project setup
+Generate a r... XRP ledger account and matching Family Seed (secret) based on your own random input data (text & mouse / touch movement).
+Inspired by [bitaddress.org](https://bitaddress.org)
+
+By [Wietse Wind](https://wietse.com)
+
+## Run for development
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compile (output in `dist` folder)
 ```
+npm install
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

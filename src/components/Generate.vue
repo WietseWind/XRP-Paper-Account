@@ -18,7 +18,7 @@
       <code class="generated font-weight-bold px-2 text-danger d-inline-block mb-3" v-clipboard:copy="'Secret (keep safe!): ' + secret">{{ secret }}</code>
     </div>
     <div class="mt-4 text-center">
-      <button @click="print()" class="font-weight-bold btn btn-lg btn-dark">Print this</button>
+      <button @click="print()" class="font-weight-bold btn btn-lg btn-dark">Print this (unsafe!) <small>- Better write down &amp; test</small></button>
     </div>
   </div>
 </template>
@@ -80,7 +80,7 @@ export default {
       box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
       border-radius: 4px;
       &:before {
-        content: 'Copied!';
+        content: 'Copied! (Unsafe!)';
         display: block;
         position: absolute;
         color: black;

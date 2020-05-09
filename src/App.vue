@@ -1,35 +1,48 @@
 <template>
   <div id="app" class="container pt-4 pb-3">
-    <h3>
-      <b>XRP Ledger Paper Account Generator</b>
-    </h3>
-    <div class="input-group input-group-lg mt-4">
-      <input
-        @focus="isTyping = true"
-        @blur="isTyping = false"
-        v-model="text"
-        type="search"
-        autocomplete="off"
-        class="form-control"
-        name="text"
-        placeholder="Type something..." />
-    </div>
-    <div class="progress mt-1 mb-2">
-      <div class="progress-bar" :class="progressColor" role="progressbar" :style="{width: progress + '%'}" :ariaValuenow="progress" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
     <code class="text-muted inputData">{{ entropyInput.split('').reverse().join('').toUpperCase() }}</code>
-    <!-- <pre>{{ isTyping }}</pre> -->
-    <!-- <pre>{{ isDrawing }}</pre> -->
-    <div v-if="progressColor === 'bg-danger'" class="alert alert-primary text-center h5 mt-5 py-3">
-      Please generate more random data by typing in the input box &amp; by painting with your mouse or by touching
-    </div>
-    <Generate :entropyString="entropyInput" v-if="progressColor !== 'bg-danger'" />
     <i v-for="(k, i) in coords.split('&')" v-bind:key="i" :style="{left: k.split('.')[0] + 'px', top: k.split('.')[1] + 'px'}"></i>
+    <div class="row h-100">
+      <div class="col-12 h-100">
+        <h3>
+          <b>XRP Ledger Paper Account Generator</b>
+        </h3>
+      </div>
+      <div class="d-block d-md-none col-12">
+        <div class="alert alert-warning text-center mt-3">
+          <b>This tool is not available on mobile clients.</b>
+          <br />
+          Please use your desktop.
+        </div>
+      </div>
+      <div class="d-none d-md-block col-12 h-100">
+        <div class="input-group input-group-lg mt-4">
+          <input
+            @focus="isTyping = true"
+            @blur="isTyping = false"
+            v-model="text"
+            type="search"
+            autocomplete="off"
+            class="form-control"
+            name="text"
+            placeholder="Type something..." />
+        </div>
+        <div class="progress mt-1 mb-2">
+          <div class="progress-bar" :class="progressColor" role="progressbar" :style="{width: progress + '%'}" :ariaValuenow="progress" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <!-- <pre>{{ isTyping }}</pre> -->
+        <!-- <pre>{{ isDrawing }}</pre> -->
+        <div v-if="progressColor === 'bg-danger'" class="alert alert-primary text-center h5 mt-5 py-3" style="z-index: -10">
+          Please generate more random data by typing in the input box &amp; by painting with your mouse or by touching (tablet/touch PC)
+        </div>
+        <Generate :entropyString="entropyInput" v-if="progressColor !== 'bg-danger'" />
 
-    <div class="mt-5 pt-3">
-      <div class="text-center">
-        By <a class="btn btn-primary btn-sm py-1" href="https://twitter.com/WietseWind" target="_blank"><b>@WietseWind</b></a>
-        - <a class="btn btn-primary btn-sm py-1" href="https://github.com/WietseWind/XRP-Paper-Account" target="_blank"><b>Source code (Github)</b></a>
+        <div class="mt-5 pt-3">
+          <div class="text-center">
+            By <a class="btn btn-primary btn-sm py-1" href="https://twitter.com/WietseWind" target="_blank"><b>@WietseWind</b></a>
+            - <a class="btn btn-primary btn-sm py-1" href="https://github.com/WietseWind/XRP-Paper-Account" target="_blank"><b>Source code (Github)</b></a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -85,8 +98,9 @@ export default {
     }
   },
   mounted () {
+    const noTarget = ['input', 'button', 'a', 'code']
     const start = e => {
-      if (['input', 'button', 'a'].indexOf(e.target.tagName.toLowerCase()) < 0) {
+      if (noTarget.indexOf(e.target.tagName.toLowerCase()) < 0) {
         this.isDrawing = true
         if (!this.isTyping) {
           document.querySelector('body').style.touchAction = 'none'
@@ -101,7 +115,7 @@ export default {
       this.calcEntropy()
     }
     const move = e => {
-      if (this.isDrawing && !this.isTyping) {
+      if (this.isDrawing && !this.isTyping && noTarget.indexOf(e.target.tagName.toLowerCase()) < 0) {
         e.preventDefault()
 
         if (e.changedTouches) {
@@ -144,6 +158,9 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
+  }
+  div.container, div.row {
+    min-height: calc(100vh);
   }
   i {
     border: 4px solid green;

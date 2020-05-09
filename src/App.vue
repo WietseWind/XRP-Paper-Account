@@ -28,7 +28,8 @@
 
     <div class="mt-5 pt-3">
       <div class="text-center">
-        By <a class="btn btn-primary btn-sm py-1" href="https://twitter.com/WietseWind" target="_blank"><b>@WietseWind</b></a> - <a class="btn btn-primary btn-sm py-1" href="" target="_blank"><b>Source code (Github)</b></a>
+        By <a class="btn btn-primary btn-sm py-1" href="https://twitter.com/WietseWind" target="_blank"><b>@WietseWind</b></a>
+        - <a class="btn btn-primary btn-sm py-1" href="https://github.com/WietseWind/XRP-Paper-Account" target="_blank"><b>Source code (Github)</b></a>
       </div>
     </div>
   </div>

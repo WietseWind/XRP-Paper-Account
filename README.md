@@ -9,7 +9,7 @@ If you want to send me a sip with your newly generated & activated account:
 
 ## Please note that the best way to run this, is by getting the source, installing the dependencies (see "Compile" below) and run this offline on your own device.
 
-- Demo: https://xrp-addr.wietse.now.sh
+- Demo: https://www.xrpaddress.org
 - Release: https://github.com/WietseWind/XRP-Paper-Account/releases
 
 ## Run for development

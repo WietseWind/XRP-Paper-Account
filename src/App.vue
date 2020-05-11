@@ -1,9 +1,9 @@
 <template>
-  <div id="app" class="container pt-4 pb-3">
-    <code class="text-muted inputData">{{ entropyInput.split('').reverse().join('').toUpperCase() }}</code>
-    <i v-for="(k, i) in coords.split('&')" v-bind:key="i" :style="{left: k.split('.')[0] + 'px', top: k.split('.')[1] + 'px'}"></i>
+  <div id="app" class="container pt-2 pb-1">
+    <code class="d-print-none text-muted inputData">{{ entropyInput.split('').reverse().join('').toUpperCase() }}</code>
+    <i class="d-print-none" v-for="(k, i) in coords.split('&')" v-bind:key="i" :style="{left: k.split('.')[0] + 'px', top: k.split('.')[1] + 'px'}"></i>
     <div class="row h-100">
-      <div class="col-12 h-100">
+      <div class="col-12 h-100 d-print-none">
         <h3>
           <b>XRP Ledger Paper Account Generator</b>
         </h3>
@@ -23,11 +23,11 @@
             v-model="text"
             type="search"
             autocomplete="off"
-            class="form-control"
+            class="form-control d-print-none"
             name="text"
             placeholder="Type something..." />
         </div>
-        <div class="progress mt-1 mb-2">
+        <div class="progress mt-1 mb-2 d-print-none">
           <div class="progress-bar" :class="progressColor" role="progressbar" :style="{width: progress + '%'}" :ariaValuenow="progress" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <!-- <pre>{{ isTyping }}</pre> -->
@@ -40,7 +40,9 @@
         <div class="mt-5 pt-3">
           <div class="text-center">
             By <a class="btn btn-primary btn-sm py-1" href="https://twitter.com/WietseWind" target="_blank"><b>@WietseWind</b></a>
-            - <a class="btn btn-primary btn-sm py-1" href="https://github.com/WietseWind/XRP-Paper-Account" target="_blank"><b>Source code (Github)</b></a>
+            <span class="d-print-none">
+              - <a class="btn btn-primary btn-sm py-1" href="https://github.com/WietseWind/XRP-Paper-Account" target="_blank"><b>Source code (Github)</b></a>
+            </span>
           </div>
         </div>
       </div>
@@ -153,6 +155,11 @@ export default {
 </script>
 
 <style lang="scss">
+  @media print {
+    .d-print-none {
+      display: none!important;
+    }
+  }
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

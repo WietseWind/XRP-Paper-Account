@@ -1,4 +1,4 @@
-# Generate XRP Ledger Paper Account [![Run on Repl.it](https://repl.it/badge/github/WietseWind/XRP-Paper-Account)](https://repl.it/github/WietseWind/XRP-Paper-Account)
+# Generate XRP Ledger Paper Account
 
 Generate a r... XRP ledger account and matching Family Seed (secret) based on your own random input data (text & mouse / touch movement).
 Inspired by [bitaddress.org](https://bitaddress.org)

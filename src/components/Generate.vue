@@ -33,6 +33,9 @@
           {{ familySeed }}
         </code>
       </small>
+      <div class="text-center">
+        <qrcode-vue foreground="#ca0000" level="H" :value="familySeed" />
+      </div>
     </div>
     <div class="mt-4 text-center d-print-none">
       <button @click="print()" class="font-weight-bold btn btn btn-dark">Print this (unsafe!) <small>- Better write down &amp; test</small></button>
@@ -46,6 +49,7 @@ import VueClipboard from 'vue-clipboard2'
 import Crypto from 'crypto'
 // import XrplKeyPairs from 'ripple-keypairs'
 import { Account } from 'xrpl-secret-numbers'
+import QrcodeVue from 'qrcode.vue'
 
 Vue.use(VueClipboard)
 
@@ -55,6 +59,9 @@ export default {
   name: 'Generate',
   props: {
     entropyString: String
+  },
+  components: {
+    QrcodeVue
   },
   methods: {
     print () {

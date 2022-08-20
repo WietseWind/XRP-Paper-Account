@@ -18,6 +18,18 @@ npm install
 npm run serve
 ```
 
+If you get an error (because of using npm 7) like:
+
+```
+Error: Rule can only have one resource source (provided resource and test + include + exclude)
+```
+
+... run:
+
+```
+npm update --legacy-peer-deps
+```
+
 ### Compile (output in `dist` folder)
 ```
 npm install
